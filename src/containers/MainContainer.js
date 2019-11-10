@@ -9,7 +9,7 @@ class MainContainer extends Component {
       <Layout>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }} >
           <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-              test
+              Dashboard
           </div>
         </Content>
       </Layout>
