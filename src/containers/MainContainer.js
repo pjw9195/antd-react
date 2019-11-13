@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Layout} from "../components/common"
 import {Layout as antdLayout} from"antd"
-
+import LineDemo from "../components/chart/chart"
 const {Content} = antdLayout
 class MainContainer extends Component {
   render() {
@@ -9,7 +9,7 @@ class MainContainer extends Component {
       <Layout>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }} >
           <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-              Dashboard
+            <LineDemo />
           </div>
         </Content>
       </Layout>
