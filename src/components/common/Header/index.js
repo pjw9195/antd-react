@@ -6,6 +6,8 @@ const {Header: Index} = Layout;
 
 export default () => {
   return(
-      <Index style={{ background: '#fff', padding: 0 }} />
+      <>
+        <Index style={{ background: '#', padding: 0 }}>test</Index>
+      </>
   )
 }

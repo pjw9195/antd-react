@@ -32,7 +32,7 @@ const data = {
 export default class LineDemo extends Component {
   render() {
     return (
-        <div style={{height : '25em', width : '40em', marginLeft: '15em'}}>
+        <div style={{height : '25em', width : '40em', }}>
           <h2>Line Example</h2>
           <Line  ref="chart" data={data}  />
         </div>

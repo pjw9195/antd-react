@@ -7,8 +7,8 @@ class MainContainer extends Component {
   render() {
     return (
       <Layout>
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }} >
-          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+        <Content style={{ margin: '24px 16px 15px', overflow: 'initial' }} >
+          <div style={{ padding: 24, background: '#fff', textAlign: 'center', marginLeft:'200px' }}>
             <LineDemo />
           </div>
         </Content>
