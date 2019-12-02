@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import BoardItem from "./boardItem"
-/*
- simple list
- */
+import BoardForm from "./boardForm"
+
 class Board extends Component {
   state = {
+    maxNo: 3,
     boards: [
       {
         brdno: 1,
@@ -18,17 +18,41 @@ class Board extends Component {
         brdtitle: 'Founder for two countries',
         brddate: new Date()
       }
-    ]
+    ],
+    selectedBoard:{}
+  }
+
+  handleSaveData = (data) => {
+    if (!data.brdno) {            // new : Insert
+      this.setState({
+        maxNo: this.state.maxNo+1,
+        boards: this.state.boards.concat({brdno: this.state.maxNo, brddate: new Date(), ...data }),
+        selectedBoard: {}
+      });
+    } else {                                                        // Update
+      this.setState({
+        boards: this.state.boards.map(row => data.brdno === row.brdno ? {...data }: row),
+        selectedBoard: {}
+      })
+    }
+  }
+
+  handleRemove = (brdno) => {
+    this.setState({
+      boards: this.state.boards.filter(row => row.brdno !== brdno)
+    })
+  }
+
+  handleSelectRow = (row) => {
+    this.setState({selectedBoard:row});
   }
 
   render() {
-    const {boards} = this.state;
-    const list = boards.map(function (row) {
-      return row.brdno + row.brdwriter;
-    });
+    const { boards, selectedBoard } = this.state;
 
     return (
-        <div>
+        <>
+          <BoardForm selectedBoard={selectedBoard} onSaveData={this.handleSaveData}/>
           <table border="1">
             <tbody>
             <tr align="center">
@@ -37,10 +61,14 @@ class Board extends Component {
               <td width="100">Name</td>
               <td width="100">Date</td>
             </tr>
-            {boards.map(row => (<BoardItem key={row.brdno} row={row}/>))} </tbody>
+            {
+              boards.map(row =>
+                  (<BoardItem key={row.brdno} row={row} onRemove={this.handleRemove} onSelectRow={this.handleSelectRow} />)
+              )
+            }
+            </tbody>
           </table>
-        </div>
-
+        </>
     );
   }
 }

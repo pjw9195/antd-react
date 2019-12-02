@@ -11,7 +11,7 @@ export default () => {
           style={{
             overflow: 'auto',
             height: '100vh',
-            position: 'fixed',
+            position: 'absolute',
             left: 0,
           }}
       >
@@ -31,15 +31,15 @@ export default () => {
             </Link>
           </Menu.Item>
           <Menu.Item key="3">
-            <Link to="/profile">
-              <Icon type="upload"/>
-              <span className="nav-text">Profile</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="4">
             <Link to="/ranking">
               <Icon type="bar-chart"/>
               <span className="nav-text">Ranking</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <Link to="/profile">
+              <Icon type="upload"/>
+              <span className="nav-text">Profile</span>
             </Link>
           </Menu.Item>
 
